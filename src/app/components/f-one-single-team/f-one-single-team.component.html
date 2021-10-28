@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <!-- Column -->
+        </div>
+        <div class="col mt-3">
+            <div class="card p-2 bg-secondary rounded" style="width: 35rem;">
+                <img src={{team.imgSrc}} class="card-img-top" alt="...">
+                <div class="my-2">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border">TEAM - {{team.teamName}}</li>
+                        <li class="list-group-item border">CHASSIS - {{team.chassis}}</li>
+                        <li class="list-group-item border">ENGINE - {{team.engineManufacturer}}</li>
+                        <li class="list-group-item border">CONSTRUCTOR POINTS - {{team.constructorPoints}}</li>
+                        <div *ngFor="let driver of team.drivers">
+                          <li class="list-group-item">DRIVER - <span>{{driver.name}}</span> 
+                            <ul id="drlst">
+                              <li>Driver Number - {{driver.driverNumber}}</li>
+                              <li>Country - {{driver.nationality}}</li>
+                              <li>Driver Points - {{driver.driverPoints}}</li>
+                            </ul>
+                          </li>
+                        </div>
+                      </ul>
+                    </div>
+                <div class='d-grid gap-2 col-6 mx-auto text-dark'>
+                  <button class='btn btn-secondary btn-outline-primary' (click)='onBack()'>
+                    <span class="text-black "><i class='bi bi-caret-left-fill fs-4 '></i></span>
+                    <span class=" text-black" id="back">Back</span>
+                  </button>
+                </div>
+              </div>
+        </div>
+        <div class="col">
+          <!-- Column -->
+        </div>
+      </div>
+</div>
+
+

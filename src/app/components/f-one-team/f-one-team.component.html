@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card border-dark rounded-3">
+    <div class="card-body bg-dark">
+        
+       
+    <h1 class="text-center text-white bg-dark pb-3 pt-1">F1 TEAMS</h1>
+    <table class="table table-dark text-white">
+      <thead class="text-center"> 
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col">TEAM NAME</th>
+            <th scope="col">ENGINE MANUFACTURER</th>
+            <th scope="col">CHASSIS</th>
+            <th scope="col">CONSTRUCTOR POINTS</th>
+            <th scope="col">DRIVERS</th>
+        </tr>
+       </thead>  
+       <tbody class="text-center border border-2 fs-5">
+        <tr *ngFor=" let team of teams; index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td><img src={{team.imgSrc}} class="" id="teamImg" alt="..."></td>
+            <td class="fw-bold"><a [routerLink]="['/teams', team.id]">{{team.teamName}}</a></td>
+            <td class="">{{team.engineManufacturer}}</td>
+            <td>{{team.chassis}}</td>
+            <td>{{team.constructorPoints}}</td>
+            <td>
+                <div *ngFor=" let driver of team.drivers">{{driver['name']}}</div>
+            </td>
+        </tr>
+       </tbody> 
+    </table>
+   </div>
+  </div>
+</div>
+

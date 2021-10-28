@@ -1,0 +1,18 @@
+.card{
+    box-shadow: 0px 4px 8px 0px #1d1d1d, 0px 6px 20px 0 black;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+#addteam{
+    margin-top: 125px;
+}
+
+#ch{
+    margin-top: -10px;
+    margin-bottom: -20px;
+}

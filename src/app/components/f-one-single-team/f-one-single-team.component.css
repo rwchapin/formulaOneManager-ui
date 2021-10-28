@@ -1,0 +1,10 @@
+#back {
+    margin: 0px;
+    font-size: 25px;
+    font-weight: 500;
+    padding-right: 5px;
+}
+
+#drlst{
+    list-style-type: disc;
+}

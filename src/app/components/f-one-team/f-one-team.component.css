@@ -1,0 +1,11 @@
+#teamImg{
+    width: 10rem;
+}
+
+table{
+    margin-top: -8px;
+}
+
+.card{
+    box-shadow: 0px 4px 8px 0px #1d1d1d, 0px 6px 20px 0 black;
+}
