@@ -9,10 +9,16 @@ input{
 }
 
 #addteam{
-    margin-top: 125px;
+    margin-top: 0px;
 }
 
 #ch{
     margin-top: -10px;
     margin-bottom: -20px;
+}
+
+#addteamimg{
+    width: 28rem;
+    margin-top: 10px;
+    margin-left: 35px
 }

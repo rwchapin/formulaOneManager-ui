@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FOneTeamServiceService } from 'src/app/service/f-one-team-service/f-one-team-service.service';
@@ -11,7 +11,7 @@ import { FOneTeamServiceService } from 'src/app/service/f-one-team-service/f-one
 export class FOneAddTeamComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, 
-    private fOneTeamService: FOneTeamServiceService) { }
+    private fOneTeamService: FOneTeamServiceService, private elementRef: ElementRef) { }
 
     addForm!: FormGroup;
 
@@ -57,5 +57,13 @@ export class FOneAddTeamComponent implements OnInit {
       });
       console.log(this.addForm.value);
   }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument
+        .body.style.backgroundImage = 'url("./assets/f1track.jpg")';
+
+        this.elementRef.nativeElement.ownerDocument
+        .body.style.backgroundSize = "100%";  
+}
 
 }

@@ -14,7 +14,10 @@ export class FOneHomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument
-        .body.style.backgroundImage = 'url("./assets/f1-1.jpg")';
+        .body.style.backgroundImage = 'url("./assets/f1track2.jpg")';
+
+        this.elementRef.nativeElement.ownerDocument
+        .body.style.backgroundSize = "100%";  
 }
 
 }
