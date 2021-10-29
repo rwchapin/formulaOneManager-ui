@@ -4,6 +4,7 @@ import { FOneHomeComponent } from './component/f-one-home/f-one-home.component';
 import { FOneAddTeamComponent } from './components/f-one-add-team/f-one-add-team.component';
 import { FOneSingleTeamComponent } from './components/f-one-single-team/f-one-single-team.component';
 import { FOneTeamComponent } from './components/f-one-team/f-one-team.component';
+import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-update-team.component';
 
 const routes: Routes = [
   {
@@ -21,9 +22,14 @@ const routes: Routes = [
     component: FOneSingleTeamComponent
   },
   {
+    path: 'teams/:id/updateteam',
+    component: FOneUpdateTeamComponent
+  },
+  {
     path: 'addteam',
     component: FOneAddTeamComponent
   }
+  
 ];
 
 @NgModule({

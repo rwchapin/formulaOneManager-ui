@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="card bg-dark">
+      <div class="card-header text-white text-center fs-1 fw-bold" id="ch">UPDATE {{oneTeam.teamName | uppercase}} TEAM</div>
+      <div class="card-body">
+   
+      <form *ngIf="team | async"
+      [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          
+          <div class="col">
+            <div class="col user-container text-white" id="addteam">
+  
+                <h3 class="text-center text-white">Update {{oneTeam.teamName}} Team</h3>
+                
+                  <div class="form-group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" formControlName="teamName" placeholder="Team Name" name="teamName" class="form-control"
+                          id="teamName">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="engineManufacturer">Engine Manufacturer</label>
+                    <input type="text" formControlName="engineManufacturer" placeholder="Engine Manufacturer" name="engineManufacturer" class="form-control"
+                          id="engineManufacturer">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="chassis">Chassis</label>
+                    <input type="text" formControlName="chassis" placeholder="Chassis" name="chassis" class="form-control"
+                          id="chassis">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="constructorPoints">Constructor Points</label>
+                    <input type="text" formControlName="constructorPoints" placeholder="Constructor Points" name="constructorPoints" class="form-control"
+                          id="constructorPoints">
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="imgSrc">Image Source</label>
+                    <input type="text" formControlName="imgSrc" placeholder="./assets/" name="imgSrc" class="form-control"
+                          id="imgSrc">
+                  </div>
+                  <div>
+                    <img src="./assets/2022f1car2.jpg" alt="" id="addteamimg">
+                  </div>
+  
+              </div>
+          </div>
+  
+          <div class="col text-white">
+            <div formArrayName="drivers">
+              <ng-container *ngFor="let driver of drivers.controls; let i = index">
+                  
+                <h3 class="text-center">Update Driver {{i + 1}}</h3>
+                
+                <div [formGroupName] = 'i'>
+                  <div class="form-group">
+                    <label for="name">Driver Name</label>
+                    <input type="text" formControlName="name" placeholder="Driver Name" name="name" class="form-control"
+                          id="name">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="driverNumber">Driver Number</label>
+                    <input type="text" formControlName="driverNumber" placeholder="Driver Number" name="driverNumber" class="form-control"
+                          id="driverNumber">
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" formControlName="nationality" placeholder="Nationality" name="nationality" class="form-control"
+                          id="nationality">
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="driverPoints">Driver Points</label>
+                    <input type="text" formControlName="driverPoints" placeholder="Driver Points" name="driverPoints" class="form-control"
+                          id="driverPoints">
+                  </div>
+                </div>
+            
+              </ng-container>
+            </div>
+          </div>
+        </div>
+  
+          <div class="row">
+            <div class="col mt-3">
+              <button class="btn btn-success form-control fw-bold text-black">
+                <i class="bi bi-plus"></i>
+                <span><img src="./assets/car-icon.png" id="caricon"></span>
+                <span>Update Team</span>
+              </button>
+            </div>
+          </div>
+        
+      </form>
+    </div>
+   </div>
+  </div>
+  
+  
+  
+  

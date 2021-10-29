@@ -9,10 +9,16 @@ h1{
 #home, #f1teams, #addf1team{
     font-size: 22px;
     font-weight: bold;
-    margin-left: 1px;
+    margin-left: 15px;
     margin-right: 1px;
 }
 
 .navbar{
     box-shadow: 0px 4px 8px 0px #1d1d1d, 0px 6px 20px 0 black;
+    position: sticky;
+    top: 0;
+}
+
+#ro{
+    
 }

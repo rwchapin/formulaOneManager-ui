@@ -12,6 +12,7 @@ import { FOneSingleTeamComponent } from './components/f-one-single-team/f-one-si
 import { FOneAddTeamComponent } from './components/f-one-add-team/f-one-add-team.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FOneHomeComponent } from './component/f-one-home/f-one-home.component';
+import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-update-team.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FOneHomeComponent } from './component/f-one-home/f-one-home.component';
     FOneDriversComponent,
     FOneSingleTeamComponent,
     FOneAddTeamComponent,
-    FOneHomeComponent
+    FOneHomeComponent,
+    FOneUpdateTeamComponent
   ],
   imports: [
     BrowserModule,

@@ -4,16 +4,16 @@
           <!-- Column -->
         </div>
         <div class="col mt-3">
-            <div class="card p-2 bg-secondary rounded" style="width: 35rem;">
+            <div class="card p-2 bg-dark rounded" style="width: 35rem;">
                 <img src={{team.imgSrc}} class="card-img-top" alt="...">
                 <div class="my-2">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item border">TEAM - {{team.teamName}}</li>
-                        <li class="list-group-item border">CHASSIS - {{team.chassis}}</li>
-                        <li class="list-group-item border">ENGINE - {{team.engineManufacturer}}</li>
-                        <li class="list-group-item border">CONSTRUCTOR POINTS - {{team.constructorPoints}}</li>
+                    <ul class="list-group list-group-flush fw-bold">
+                        <li class="list-group-item border border-dark bg-secondary">TEAM - {{team.teamName}}</li>
+                        <li class="list-group-item border border-dark bg-secondary">CHASSIS - {{team.chassis}}</li>
+                        <li class="list-group-item border border-dark bg-secondary">ENGINE - {{team.engineManufacturer}}</li>
+                        <li class="list-group-item border border-dark bg-secondary">CONSTRUCTOR POINTS - {{team.constructorPoints}}</li>
                         <div *ngFor="let driver of team.drivers">
-                          <li class="list-group-item">DRIVER - <span>{{driver.name}}</span> 
+                          <li class="list-group-item border-dark bg-secondary">DRIVER - <span>{{driver.name}}</span> 
                             <ul id="drlst">
                               <li>Driver Number - {{driver.driverNumber}}</li>
                               <li>Country - {{driver.nationality}}</li>
@@ -23,10 +23,11 @@
                         </div>
                       </ul>
                     </div>
-                <div class='d-grid gap-2 col-6 mx-auto text-dark'>
+                <div class='d-grid col-12 text-dark'>
                   <button class='btn btn-primary btn-outline-primary' (click)='onBack()'>
-                    <span class="text-black "><i class='bi bi-caret-left-fill fs-4 '></i></span>
-                    <span class=" text-black" id="back">Back</span>
+                    <!-- <span class="text-black"><i class='bi bi-arrow-left-short' id="caretIcon"></i></span> -->
+                    <span><img src="./assets/car-icon.png" id="caricon"></span>
+                    <span class=" text-black" ><strong id="back">Back</strong></span>
                   </button>
                 </div>
               </div>

@@ -25,5 +25,9 @@ export class FOneTeamServiceService {
     return this.http.post(this.url, team);
   }
 
+  updateTeam(id:number, team: Object): Observable<Object> {
+    return this.http.put(this.url + id, team);
+  }
+
 
 }

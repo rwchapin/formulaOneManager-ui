@@ -9,3 +9,26 @@ table{
 .card{
     box-shadow: 0px 4px 8px 0px #1d1d1d, 0px 6px 20px 0 black;
 }
+
+#tmbtn{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: -45px;
+    padding: 7px 15px 10px 15px;
+    
+}
+
+h1{
+    margin-top: -20px;
+}
+
+#caricon{
+    width: 75px;
+    margin: 0 10px 0 0px;
+    padding: 0px 0px; 
+    line-height: 0px;
+    min-width: 0;
+    
+    
+  
+}
