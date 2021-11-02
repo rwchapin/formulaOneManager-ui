@@ -29,5 +29,9 @@ export class FOneTeamServiceService {
     return this.http.put(this.url + id, team);
   }
 
+  deleteTeam(id: number): Observable<Object> {
+    return this.http.delete(this.url + id);
+  }
+
 
 }

@@ -2,7 +2,10 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { FOneDriversServiceService } from 'src/app/service/f-one-drivers-service/f-one-drivers-service.service';
 import { FOneTeamServiceService } from 'src/app/service/f-one-team-service/f-one-team-service.service';
+import { FOneTeam } from '../f-one-team/f-one-team';
+import { FOneTeamComponent } from '../f-one-team/f-one-team.component';
 
 @Component({
   selector: 'app-f-one-update-team',
@@ -12,12 +15,17 @@ import { FOneTeamServiceService } from 'src/app/service/f-one-team-service/f-one
 export class FOneUpdateTeamComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, 
-    private fOneTeamService: FOneTeamServiceService, private elementRef: ElementRef, private route: ActivatedRoute) { }
+    private fOneTeamService: FOneTeamServiceService, private fOneDriverService: FOneDriversServiceService, private elementRef: ElementRef, private route: ActivatedRoute) { }
 
     id!: number;
     addForm!: FormGroup;
+    addFormDri!: FormGroup;
+    addFormDri2!: FormGroup;
     team: any;
-    oneTeam: any;
+    oneTeam!: any;
+    drivers: any = [];
+    driverIds: any = [];
+    driver: any;
 
     getTeam(id: number){
       this.team = this.fOneTeamService.getTeam(id).pipe(tap(team => this.addForm.patchValue(team)));
@@ -27,22 +35,17 @@ export class FOneUpdateTeamComponent implements OnInit {
       return this.team;
     }
 
-    get drivers(){
-      return this.addForm.get('drivers') as FormArray;
-    }
-
-    newDriver(): FormGroup{
-      return this.formBuilder.group({
-        name: '',
-        driverNumber: '',
-        nationality: '',
-        driverPoints: ''
+    getDrivers(id: number){
+      this.fOneTeamService.getTeam(id).subscribe(data => {
+        this.drivers = data.drivers;
+        for(let driver of data.drivers){
+          this.driverIds.push(driver.id);
+        }
       });
+      
     }
-
-    addDriver(){
-      this.drivers.push(this.newDriver());
-    }
+    
+  
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
@@ -51,18 +54,35 @@ export class FOneUpdateTeamComponent implements OnInit {
       engineManufacturer: [""],
       chassis: [""],
       constructorPoints: [""],
-      imgSrc: [""],
-      drivers: this.formBuilder.array([])
+      imgSrc: [""]
+    });
+
+    this.addFormDri = this.formBuilder.group({
+      id: [],
+      name: [""],
+      driverNumber: [""],
+      nationality: [""],
+      driverPoints: [""]
+    });
+
+    this.addFormDri2 = this.formBuilder.group({
+      id: [],
+      name: [""],
+      driverNumber: [""],
+      nationality: [""],
+      driverPoints: [""]
     });
     
-    this.addDriver();
-    this.addDriver();
+    
 
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.getTeam(this.id);
+    this.getDrivers(this.id);
+    
     
   }
+
 
   onSubmit() {
     this.fOneTeamService.updateTeam(this.id, this.addForm.value).subscribe(
@@ -71,6 +91,23 @@ export class FOneUpdateTeamComponent implements OnInit {
       });
       console.log(this.addForm.value);
   }
+
+  onDriver1Submit(dId: any){
+    this.fOneDriverService.updateDriver(dId, this.addFormDri.value).subscribe(
+      data => {
+        this.router.navigate(['teams']);
+      });
+    console.log("Driver id is " + dId);
+  }
+
+  onDriver2Submit(dId: any){
+    this.fOneDriverService.updateDriver(dId, this.addFormDri2.value).subscribe(
+      data => {
+        this.router.navigate(['teams']);
+      });
+    console.log("Driver id is " + dId);
+  }
+
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument

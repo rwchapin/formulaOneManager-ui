@@ -3,14 +3,15 @@
       <div class="card-header text-white text-center fs-1 fw-bold" id="ch">UPDATE {{oneTeam.teamName | uppercase}} TEAM</div>
       <div class="card-body">
    
-      <form *ngIf="team | async"
-      [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      
         <div class="row">
           
           <div class="col">
+            <form *ngIf="team | async"
+      [formGroup]="addForm" (ngSubmit)="onSubmit()">
             <div class="col user-container text-white" id="addteam">
   
-                <h3 class="text-center text-white">Update {{oneTeam.teamName}} Team</h3>
+                <h3 class="text-center text-white">Update Team</h3>
                 
                   <div class="form-group">
                     <label for="teamName">Team Name</label>
@@ -42,60 +43,98 @@
                           id="imgSrc">
                   </div>
                   <div>
-                    <img src="./assets/2022f1car2.jpg" alt="" id="addteamimg">
+                    <img src="{{oneTeam.imgSrc}}" alt="" id="addteamimg">
+                  </div>
+
+                  <div class="mt-3">
+                    <button class="btn btn-success form-control fw-bold text-black">
+                      <span><img src="./assets/car-icon.png" id="caricon"></span>
+                      <span>Update Team</span>
+                    </button>
                   </div>
   
               </div>
+            </form>
           </div>
   
-          <div class="col text-white">
-            <div formArrayName="drivers">
-              <ng-container *ngFor="let driver of drivers.controls; let i = index">
-                  
-                <h3 class="text-center">Update Driver {{i + 1}}</h3>
-                
-                <div [formGroupName] = 'i'>
-                  <div class="form-group">
-                    <label for="name">Driver Name</label>
-                    <input type="text" formControlName="name" placeholder="Driver Name" name="name" class="form-control"
-                          id="name">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="driverNumber">Driver Number</label>
-                    <input type="text" formControlName="driverNumber" placeholder="Driver Number" name="driverNumber" class="form-control"
-                          id="driverNumber">
-                  </div>
-                
-                  <div class="form-group">
-                    <label for="nationality">Nationality</label>
-                    <input type="text" formControlName="nationality" placeholder="Nationality" name="nationality" class="form-control"
-                          id="nationality">
-                  </div>
-                
-                  <div class="form-group">
-                    <label for="driverPoints">Driver Points</label>
-                    <input type="text" formControlName="driverPoints" placeholder="Driver Points" name="driverPoints" class="form-control"
-                          id="driverPoints">
-                  </div>
-                </div>
+          <div class="col user-container text-white">
             
-              </ng-container>
-            </div>
-          </div>
+            <form *ngIf="oneTeam"
+      [formGroup]="addFormDri" (ngSubmit)="onDriver1Submit(id.value)">
+                <h3 class="text-center text-white">Update driver 1</h3>
+              <div class="form-group">
+                <label for="name" >Name</label>
+                <input type="text" formControlName="name" placeholder="Driver Name" name="name" 
+                  class="form-control" id="name" [ngModel]='drivers[0].name'>
+              </div>
+              <div class="form-group">
+                <label for="driverNumber" >Driver Number</label>
+                <input type="text" formControlName="driverNumber" placeholder="Driver Number" name="driverNumber" 
+                  class="form-control" id="driverNumber" [ngModel]="drivers[0].driverNumber">
+              </div>
+              <div class="form-group">
+                <label for="nationality" >Nationality</label>
+                <input type="text" formControlName="nationality" placeholder="Nationality" name="nationality" 
+                  class="form-control" id="nationality" [ngModel]="drivers[0].nationality">
+              </div>
+              <div class="form-group">
+                <label for="driverPoints" >Driver Points</label>
+                <input type="text" formControlName="driverPoints" placeholder="Driver Points" name="driverPoints" 
+                  class="form-control" id="driverPoints" [ngModel]="drivers[0].driverPoints">
+                  <input #id type="hidden" formControlName="id" [ngModel]="drivers[0].id">
+              </div>
+
+              <div class="mb-4">
+                <button class="btn btn-success form-control fw-bold text-black">
+                  <span><img src="./assets/car-icon.png" id="caricon"></span>
+                  <span>Update Driver</span>
+                </button>
+              </div>
+    
+            </form>
+
+            <form *ngIf="oneTeam"
+      [formGroup]="addFormDri2" (ngSubmit)="onDriver2Submit(id.value)">
+                <h3 class="text-center text-white">Update driver 2</h3>
+              <div class="form-group">
+                <label for="name" >Name</label>
+                <input type="text" formControlName="name" placeholder="Driver Name" name="name" 
+                  class="form-control" id="name" [ngModel]='drivers[1].name'>
+              </div>
+              <div class="form-group">
+                <label for="driverNumber" >Driver Number</label>
+                <input type="text" formControlName="driverNumber" placeholder="Driver Number" name="driverNumber" 
+                  class="form-control" id="driverNumber" [ngModel]="drivers[1].driverNumber">
+              </div>
+              <div class="form-group">
+                <label for="nationality" >Nationality</label>
+                <input type="text" formControlName="nationality" placeholder="Nationality" name="nationality" 
+                  class="form-control" id="nationality" [ngModel]="drivers[1].nationality">
+              </div>
+              <div class="form-group">
+                <label for="driverPoints" >Driver Points</label>
+                <input type="text" formControlName="driverPoints" placeholder="Driver Points" name="driverPoints" 
+                  class="form-control" id="driverPoints" [ngModel]="drivers[1].driverPoints">
+                  <input #id type="hidden" formControlName="id" [ngModel]="drivers[1].id">
+                  
+              </div>
+
+              <div class="mb-4">
+                <button class="btn btn-success form-control fw-bold text-black">
+                  <span><img src="./assets/car-icon.png" id="caricon"></span>
+                  <span>Update Driver</span>
+                </button>
+              </div>
+    
+            </form>
+          
         </div>
   
           <div class="row">
-            <div class="col mt-3">
-              <button class="btn btn-success form-control fw-bold text-black">
-                <i class="bi bi-plus"></i>
-                <span><img src="./assets/car-icon.png" id="caricon"></span>
-                <span>Update Team</span>
-              </button>
-            </div>
+            
           </div>
         
-      </form>
+      
     </div>
    </div>
   </div>

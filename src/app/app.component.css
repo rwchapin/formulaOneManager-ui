@@ -1,21 +1,4 @@
-h1{
-    font-size: 35px;
-    font-weight: bold;
-    color: rgb(255, 41, 41);
-    text-shadow: 3px 3px 3px rgba(255, 42, 42, 0.438), 1px 1px 3px rgba(255, 16, 16, 0.562);
-    margin-right: 45px;
-}
-
-#home, #f1teams, #addf1team{
-    font-size: 22px;
-    font-weight: bold;
-    margin-left: 15px;
-    margin-right: 1px;
-}
-
-.navbar{
-    box-shadow: 0px 4px 8px 0px #1d1d1d, 0px 6px 20px 0 black;
-    position: sticky;
-    top: 0;
+.router-outlet{
+    margin: 2rem;
 }
 

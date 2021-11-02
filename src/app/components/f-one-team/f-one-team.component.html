@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card border-dark rounded-3">
+  <div class="card border-dark rounded-3 mb-5">
     <div class="card-body bg-dark">
 
       <div class="card-header">
@@ -33,8 +33,8 @@
             <td>
                 <div *ngFor=" let driver of team.drivers">{{driver['name']}}</div>
             </td>
-            <td><a [routerLink]="['/teams', team.id, 'updateteam']"><i class="bi bi-cloud-arrow-up"></i></a></td>
-            <td><a><i class="bi bi-trash"></i></a></td>
+            <td><a [routerLink]="['/teams', team.id, 'updateteam']"><i class="bi bi-cloud-arrow-up text-info"></i></a></td>
+            <td><a [routerLink]="['/teams', team.id, 'deleteteam']"><i class="bi bi-trash text-danger"></i></a></td>
         </tr>
        </tbody> 
     </table>

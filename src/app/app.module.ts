@@ -10,9 +10,11 @@ import { FOneTeamServiceService } from './service/f-one-team-service/f-one-team-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FOneSingleTeamComponent } from './components/f-one-single-team/f-one-single-team.component';
 import { FOneAddTeamComponent } from './components/f-one-add-team/f-one-add-team.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FOneHomeComponent } from './component/f-one-home/f-one-home.component';
 import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-update-team.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FOneDeleteTeamComponent } from './components/f-one-delete-team/f-one-delete-team.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,17 @@ import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-up
     FOneSingleTeamComponent,
     FOneAddTeamComponent,
     FOneHomeComponent,
-    FOneUpdateTeamComponent
+    FOneUpdateTeamComponent,
+    NavbarComponent,
+    FOneDeleteTeamComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [FOneTeamServiceService],
   bootstrap: [AppComponent]
