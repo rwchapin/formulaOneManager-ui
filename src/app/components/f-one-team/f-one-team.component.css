@@ -13,13 +13,13 @@ table{
 #tmbtn{
     font-size: 15px;
     font-weight: bold;
-    margin-top: -45px;
-    padding: 7px 15px 10px 15px;
-    
+    margin-top: 7px;
+    padding: 7px 15px 10px 15px;  
 }
 
 h1{
-    margin-top: -20px;
+    padding: 0;
+    margin-left: -90px;
 }
 
 #caricon{
@@ -27,8 +27,22 @@ h1{
     margin: 0 10px 0 0px;
     padding: 0px 0px; 
     line-height: 0px;
-    min-width: 0;
+    min-width: 0; 
+}
+
+#filter{
+   
     
-    
-  
+}
+
+input{
+    font-size: 16px;
+}
+
+#filterSelect{
+   
+}
+
+#listFilter{
+   
 }

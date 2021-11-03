@@ -3,9 +3,38 @@
     <div class="card-body bg-dark">
 
       <div class="card-header">
-        <h1 class="text-center text-white bg-dark">F1 TEAMS</h1>
-        <a [routerLink]="['/addteam']"><button class="btn btn-primary float-end text-dark" id="tmbtn"><span>
-          <img src="./assets/car-icon.png" id="caricon"></span>Add Team</button></a>
+
+        <div class="row">
+
+        <div class="col-5" id="filter">
+          <div class="input-group">
+          <div class="form-floating">
+          <select class="form-select bg-primary text-dark fw-bold" name="filterSelect" id="floatingSelect" [(ngModel)]="filterSelect">
+            <option value="teamName" selected>Team Name</option>
+            <option value="engineManufacturer">Engine Manufacturer</option>
+          </select>
+          <label for="floatingSelect" class="fw-bold">Filter Select</label>
+        </div>
+          <div class="form-floating">
+          <input type="text" [(ngModel)]='listFilter' id='floatingInput' name="listFilter" class="form-control" placeholder="Filtered By"/>
+          <label for="floatingInput">Filtered By:</label></div>
+        </div>
+        </div>
+
+        <div class="col-4"><h1 class="text-center text-white bg-dark">F1 TEAMS</h1></div>
+
+        <div class="col"><a [routerLink]="['/addteam']"><button class="btn btn-primary float-end text-dark" id="tmbtn"><span>
+          <img src="./assets/car-icon.png" id="caricon"></span>Add Team</button></a></div>
+
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
       </div>  
        
     <table class="table table-dark text-white">
@@ -23,7 +52,7 @@
         </tr>
        </thead>  
        <tbody class="text-center border border-2 fs-5">
-        <tr *ngFor=" let team of teams; index as i">
+        <tr *ngFor=" let team of filteredTeams; index as i">
             <th scope="row">{{i + 1}}</th>
             <td><img src={{team.imgSrc}} class="" id="teamImg" alt="..."></td>
             <td class="fw-bold"><a [routerLink]="['/teams', team.id]">{{team.teamName}}</a></td>

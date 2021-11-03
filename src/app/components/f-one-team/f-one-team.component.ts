@@ -10,14 +10,45 @@ import { FOneTeam } from './f-one-team';
 })
 export class FOneTeamComponent implements OnInit {
 
+  private _filterSelect: string = "teamName";
+  get filterSelect(): string {
+    return this._filterSelect;
+  }
+  set filterSelect(value: string){
+    this._filterSelect = value;
+    console.log(this._filterSelect);
+  }
+  private _listFilter: string = "";
+  get listFilter(): string{
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredTeams = this.performFilter(value);
+  }
+
   teams: FOneTeam[] = [];
-  drivers = [];
+  filteredTeams: FOneTeam[] = [];
 
   constructor(private router: Router, private fOneTeamService: FOneTeamServiceService, private elementRef: ElementRef) { }
+
+  performFilter(filterBy: string): FOneTeam[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    if(this._filterSelect === "teamName"){
+    return this.teams.filter((team: FOneTeam) =>
+    team.teamName.toLocaleLowerCase().includes(filterBy));
+    } else if(this._filterSelect === "engineManufacturer"){
+      return this.teams.filter((team: FOneTeam) =>
+    team.engineManufacturer.toLocaleLowerCase().includes(filterBy));
+    }else {
+      return this.filteredTeams;
+    }
+  }
 
   getAllTeams() {
     this.fOneTeamService.getAllTeams().subscribe(data => {
       this.teams = data;
+      this.filteredTeams = this.teams;
     });
   }
 
