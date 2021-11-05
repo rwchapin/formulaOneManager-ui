@@ -15,6 +15,9 @@ import { FOneHomeComponent } from './component/f-one-home/f-one-home.component';
 import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-update-team.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FOneDeleteTeamComponent } from './components/f-one-delete-team/f-one-delete-team.component';
+import { AddUserComponent } from './components/users/add-user/add-user.component';
+import { AllUsersAdminComponent } from './components/users/all-users-admin/all-users-admin.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { FOneDeleteTeamComponent } from './components/f-one-delete-team/f-one-de
     FOneHomeComponent,
     FOneUpdateTeamComponent,
     NavbarComponent,
-    FOneDeleteTeamComponent
+    FOneDeleteTeamComponent,
+    AddUserComponent,
+    AllUsersAdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

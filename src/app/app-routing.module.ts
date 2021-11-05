@@ -6,6 +6,9 @@ import { FOneDeleteTeamComponent } from './components/f-one-delete-team/f-one-de
 import { FOneSingleTeamComponent } from './components/f-one-single-team/f-one-single-team.component';
 import { FOneTeamComponent } from './components/f-one-team/f-one-team.component';
 import { FOneUpdateTeamComponent } from './components/f-one-update-team/f-one-update-team.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddUserComponent } from './components/users/add-user/add-user.component';
+import { AllUsersAdminComponent } from './components/users/all-users-admin/all-users-admin.component';
 
 const routes: Routes = [
   {
@@ -13,6 +16,14 @@ const routes: Routes = [
   },
   {
     path:'', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path:'adduser',
+    component: AddUserComponent
   },
   {
     path: 'teams',
@@ -33,6 +44,10 @@ const routes: Routes = [
   {
     path: 'addteam',
     component: FOneAddTeamComponent
+  },
+  {
+    path: 'usersadmin',
+    component: AllUsersAdminComponent
   }
   
 ];

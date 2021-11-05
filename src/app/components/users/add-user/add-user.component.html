@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+    <div class="card bg-dark" style="width: 28rem;">
+      <div class="card-header text-white text-center fs-1 fw-bold" id="ch">ADD USER</div>
+      <div class="card-body">
+   
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          
+          <div class="col">
+            <div class="col user-container text-white" id="addteam">
+                
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" placeholder="Name" name="name" class="form-control"
+                          id="name">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" placeholder="Username" name="username" class="form-control"
+                          id="username">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control"
+                          id="password">
+                  </div>
+  
+              </div>
+          </div>
+  
+          
+        </div>
+  
+          <div class="row">
+            <div class="col mt-3">
+              <button class="btn btn-success form-control fw-bold text-black">
+                <span><img src="./assets/car-icon.png" id="caricon"></span>
+                <span>Add User</span>
+              </button>
+            </div>
+          </div>
+        
+      </form>
+    </div>
+   </div>
+
+</div>
+<div class="col"></div>
+    </div>
+  </div>
+  
+  
+  
+  
